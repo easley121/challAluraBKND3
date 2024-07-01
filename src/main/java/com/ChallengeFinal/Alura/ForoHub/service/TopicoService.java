@@ -8,14 +8,19 @@ import com.ChallengeFinal.Alura.ForoHub.repository.CursoRepository;
 import com.ChallengeFinal.Alura.ForoHub.repository.TopicoRepository;
 import com.ChallengeFinal.Alura.ForoHub.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 public class TopicoService {
 
-    @Autowired
-    private TopicoRepository topicoRepository;
+
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -44,4 +49,19 @@ public class TopicoService {
 
         return topicoRepository.save(topico);
     }
+
+    @Autowired
+    private TopicoRepository topicoRepository;
+
+    public Page<Topico> listarTopicos(String cursoNombre, int year, int page, int size) {
+        LocalDate startDate = LocalDate.of(year, 1, 1);
+        LocalDate endDate = LocalDate.of(year, 12, 31);
+        Pageable pageable = (Pageable) PageRequest.of(page, size, Sort.by("fechaCreacion").ascending());
+        return topicoRepository.findByCursoNombreAndFechaCreacionBetween(cursoNombre, startDate, endDate, pageable);
+    }
+
+    public Optional<Topico> obtenerDetalleTopico(int id) {
+        return topicoRepository.findById(id);
+    }
+
 }
