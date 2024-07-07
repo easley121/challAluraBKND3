@@ -35,12 +35,12 @@ public class Topico {
     @Getter
     @ManyToOne
     @NotNull
-    private Usuario autor;
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
     @Setter
     @Getter
     @ManyToOne
-    @NotNull
+    @JoinColumn(name = "curso_id", nullable = false)
     private Curso curso;
-
 }

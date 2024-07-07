@@ -1,9 +1,9 @@
 package com.ChallengeFinal.Alura.ForoHub.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Setter
 @Getter
@@ -21,11 +21,11 @@ public class TopicoRequest {
     @Setter
     @Getter
     @NotNull
-    private Long autorId;
+    private int usuarioId;
 
     @Setter
     @Getter
     @NotNull
-    private Long cursoId;
+    private int cursoId;
 
 }

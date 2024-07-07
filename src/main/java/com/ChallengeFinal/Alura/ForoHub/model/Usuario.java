@@ -9,7 +9,6 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +31,8 @@ public class Usuario {
     @Setter
     private String contrasena;
 
-    @OneToMany(mappedBy = "autor")
+    @OneToMany(mappedBy = "usuario")
     @Getter
     @Setter
     private List<Topico> topicos;
-
 }
