@@ -15,32 +15,25 @@ public class Topico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Setter
-    @Getter
     @NotBlank
     private String titulo;
 
-    @Setter
-    @Getter
     @NotBlank
     private String mensaje;
+
     private LocalDateTime fechaCreacion = LocalDateTime.now();
 
-    @Setter
-    @Getter
     @NotBlank
     private String status;
 
-    @Setter
-    @Getter
     @ManyToOne
     @NotNull
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @Setter
-    @Getter
     @ManyToOne
     @JoinColumn(name = "curso_id", nullable = false)
     private Curso curso;
+
+    private boolean activo = true;
 }
