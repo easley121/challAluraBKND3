@@ -1,4 +1,4 @@
-package com.ChallengeFinal.Alura.ForoHub.configs;
+package com.ChallengeFinal.Alura.ForoHub.config;
 
 import com.ChallengeFinal.Alura.ForoHub.repository.UsuarioRepository;
 import org.springframework.context.annotation.Bean;

@@ -15,6 +15,7 @@ public class LoginUserDto {
     private String contrasena;
 
     public @NotBlank CharSequence getPassword() {
+
         return contrasena;
     }
 
